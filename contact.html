@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,112 @@
     <link rel="stylesheet" href="assets/style.css" type="text/css" />
     <title>Chapter 2 Contact</title>
 </head>
+
 <body>
-    <header class="bg-success">Contact Information</header>
-    <section class="bg-info">Fan Mail Sign-up</section>
-    <section class="bg-warning">Booking Enquiries</section>
+    <header class="bg-success">
+        <h1>Contact Information</h1>
+    </header>
+    <section class="bg-info">
+        <h1>Fan Mail Sign-up</h1>
+        <p>Click below to register your email address for our mail list!</p>
+        <div class="container email-sign-up">
+            <form action="/action_page.php" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" required>
+                    <div class="invalid-feedback">Please enter your first name.</div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" required>
+                    <div class="invalid-feedback">Please enter your last name.</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                    <div class="invalid-feedback">Please enter a valid email in the format something@domain.</div>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="remember" required> I confirm that I agree to receive emails with information relating to Chapter 2.>
+                        <div class="invalid-feedback">Check this box to confirm that you agree to receive emails from us.</div>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+    <section class="bg-warning">
+        <h1>Booking Enquiries</h1>
+        <p>If you would like to book the band for your venue or event please complete and submit the form below and we will be in touch.</p>
+        <div class="container booking-enquiry">
+            <form action="/action_page.php" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" required>
+                    <div class="invalid-feedback">Please enter your first name.</div>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name:</label>
+                <input type="text" class="form-control" id="laststname" placeholder="Enter Last Name" required>
+                 <div class="invalid-feedback">Please enter your last name.</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                 <div class="invalid-feedback">Please enter a valid email in the format something@domain.</div>
+            </div>
+            <div class="form-group">
+                <label for="booking-date">Date:</label>
+                <input type="date" class="form-control" id="booking-date" required>
+                 <div class="invalid-feedback">Please enter a valid date.</div>
+            </div>
+            <div class="form-group">
+                <label for="start-time">Start Time:</label>
+                <input type="time" class="form-control" id="start-time" required>
+                 <div class="invalid-feedback">Please enter a valid start time.</div>
+            </div>
+            <div class="form-group">
+                <label for="budget">Budget:</label>
+                <input type="text" class="form-control" id="budget" placeholder="Optional">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="textarea" class="form-control" id="location" placeholder="Name & Address of Venue" required>
+                 <div class="invalid-feedback">Please enter the location for the booking.</div>
+            </div>
+            <div class="form-group">
+                <label for="additional-information">Additional Information:</label>
+                <input type="textarea" class="form-control" id="additional-information" placeholder="What is the Event/Number of Attendees/Special Requests/Access Restrictions etc.">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        </section>
     <div class="row">
         <div class="col-md-6 bg-danger">Booking Agent</div>
         <div class="col-md-6 bg-primary">Management Company</div>
     </div>
-    
+
 </body>
+<script>
+// Disable form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
 </html>
